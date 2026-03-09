@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="row mb-4">
+    <div class="col-12 text-center">
+        <h2 class="fw-bold text-corp">Testes de Usabilidade (MVP)</h2>
+        <p class="text-muted lead">Escolha uma das interfaces abaixo para avaliar a experiência de acesso aos POPs e vídeos do GRP.</p>
+    </div>
+</div>
+
+<div class="row g-4">
+    <!-- Consolidado -->
+    <div class="col-12"><h4 class="border-bottom pb-2 mt-4 text-corp">Consolidado</h4></div>
+    
+    <div class="col-md-3">
+        <a href="/1_repo_linear" class="text-decoration-none">
+            <div class="card card-hover h-100 p-4 bg-white text-dark text-center">
+                <i class="bi bi-list-ul fs-1 text-primary mb-3"></i>
+                <h5 class="fw-bold">1. Repositório linear</h5>
+                <p class="small text-muted mb-0">Índice Geral simples com lista completa e busca por título.</p>
+            </div>
+        </a>
+    </div>
+
+    <!-- Navegação Estruturada -->
+    <div class="col-12"><h4 class="border-bottom pb-2 mt-4 text-corp">Árvore (Navegação Estruturada)</h4></div>
+    
+    <div class="col-md-3">
+        <a href="/2_tree_accordion" class="text-decoration-none">
+            <div class="card card-hover h-100 p-4 bg-white text-dark text-center">
+                <i class="bi bi-list-nested fs-1 text-primary mb-3"></i>
+                <h5 class="fw-bold">2. Sanfona</h5>
+                <p class="small text-muted mb-0">Navegação expansível (accordion) focada em módulos e temas (até 4 níveis).</p>
+            </div>
+        </a>
+    </div>
+
+    <!-- Buscas Semânticas -->
+    <div class="col-12"><h4 class="border-bottom pb-2 mt-4 text-corp">Busca Inteligente</h4></div>
+    
+    <div class="col-md-3">
+        <a href="/6_ai_semantic_trad" class="text-decoration-none">
+            <div class="card card-hover h-100 p-4 bg-white text-dark text-center">
+                <i class="bi bi-search fs-1 text-success mb-3"></i>
+                <h5 class="fw-bold">6. Busca Tradicional</h5>
+                <p class="small text-muted mb-0">Busca tipo Google. Resultados ranqueados apresentados em formato de lista.</p>
+            </div>
+        </a>
+    </div>
+    
+    <!-- RAG / Generativo -->
+    <div class="col-12"><h4 class="border-bottom pb-2 mt-4 text-corp">IA Generativa (RAG)</h4></div>
+
+    <div class="col-md-3">
+        <a href="/8_rag_trad" class="text-decoration-none">
+            <div class="card card-hover h-100 p-4 bg-white text-dark text-center">
+                <i class="bi bi-layout-text-window fs-1 text-purple"></i>
+                <h5 class="fw-bold mt-3">8. Busca com Resposta</h5>
+                <p class="small text-muted mb-0">Destaque narrativo estilo "Featured Snippet" seguido pelas fontes originais.</p>
+            </div>
+        </a>
+    </div>
+</div>
+{% endblock %}

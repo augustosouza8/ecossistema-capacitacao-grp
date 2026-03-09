@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="row mb-4">
+    <div class="col-12">
+        <h3 class="text-corp"><i class="bi bi-search me-2"></i>6. IA Semântica (Busca Mock)</h3>
+        <p class="text-muted">Busca local por palavras-chave em título, resumo ou tags.</p>
+    </div>
+</div>
+
+<div class="row justify-content-center mb-5">
+    <div class="col-md-8">
+        <form action="/6_ai_semantic_trad" method="GET" class="d-flex">
+            <div class="input-group input-group-lg shadow-sm">
+                <input type="text" name="q" class="form-control fs-6" placeholder="O que você precisa fazer? (Ex: empenho)" value="{{ query }}" required>
+                <button class="btn btn-primary px-4" type="submit"><i class="bi bi-search"></i> Buscar</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+{% if query %}
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <p class="text-muted mb-4">Resultados encontrados para: <strong>"{{ query }}"</strong></p>
+        
+        {% if resultados %}
+            <div class="list-group shadow-sm">
+                {% for pop in resultados %}
+                <div class="list-group-item list-group-item-action p-4 border-0 border-bottom">
+                    <span class="badge bg-light text-dark border mb-2">{{ pop.module }} > {{ pop.theme if pop.theme else 'Geral' }}</span>
+                    <h5 class="fw-bold text-corp mb-2"><a href="#" class="text-decoration-none text-corp">{{ pop.title }}</a></h5>
+                    <p class="text-muted small mb-3">{{ pop.summary }}</p>
+                    <div class="row g-2 mt-2">
+                        {% if pop.type == 'POP' %}
+                        <div class="col-12 col-md-auto">
+                            <a href="/download/{{ pop.blob_path }}" class="btn btn-sm btn-outline-danger w-100"><i class="bi bi-file-earmark-word me-1"></i>Baixar Documento</a>
+                        </div>
+                        {% endif %}
+                        {% if pop.type == 'VIDEO' %}
+                        <div class="col-12 col-md-auto">
+                            <a href="#" onclick="fakeLink(event, '{{ pop.source_url }}')" class="btn btn-sm btn-outline-primary w-100"><i class="bi bi-play-circle me-1"></i>Assistir Tutorial</a>
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <div class="alert alert-warning border-0 shadow-sm"><i class="bi bi-exclamation-triangle me-2"></i>Nenhum procedimento encontrado para esta busca. Tente termos mais genéricos.</div>
+        {% endif %}
+    </div>
+</div>
+{% endif %}
+{% endblock %}
