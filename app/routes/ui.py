@@ -1,11 +1,20 @@
+import os
 from pathlib import Path
 
-from flask import Blueprint, current_app, render_template, request, send_from_directory
+from flask import (
+    Blueprint,
+    current_app,
+    redirect,
+    render_template,
+    request,
+    send_from_directory,
+)
 from werkzeug.wrappers import Response
 
 from app.services.catalog_service import CatalogService
 from app.services.search_mock import SearchMock
 from app.services.search_provider import SearchProvider
+from app.services.storage_service import get_blob_sas_url
 
 ui_bp = Blueprint("ui", __name__)
 
@@ -16,6 +25,12 @@ def get_search_provider() -> SearchProvider:
 
 @ui_bp.route("/download/<path:filename>")
 def download_file(filename: str) -> Response:
+    if os.environ.get("FLASK_ENV") == "production" or os.environ.get(
+        "AZURE_STORAGE_ACCOUNT_URL"
+    ):
+        sas_url = get_blob_sas_url(filename)
+        return redirect(sas_url)
+
     docs_dir = Path(current_app.root_path).parent / "data" / "docs"
     return send_from_directory(docs_dir, filename, as_attachment=True)
 
