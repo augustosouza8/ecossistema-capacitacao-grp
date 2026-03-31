@@ -2,19 +2,19 @@
 {% block content %}
 <div class="row mb-4">
     <div class="col-12">
-        <h3 class="text-corp"><i class="bi bi-list-ul me-2"></i>1. Índice Geral</h3>
+        <h3 class="text-corp"><i class="bi bi-list-ul me-2"></i>1. Índice Geral (Repositório Linear)</h3>
         <p class="text-muted">Todos os procedimentos listados de forma linear com busca no título.</p>
     </div>
 </div>
 
 <div class="row mb-4">
     <div class="col-md-8">
-        <form action="/1_repo_linear" method="GET" class="d-flex">
+        <form action="/1_indice_geral" method="GET" class="d-flex">
             <div class="input-group shadow-sm">
                 <input type="text" name="q" class="form-control" placeholder="Buscar por título..." value="{{ query }}">
                 <button class="btn btn-primary px-4" type="submit"><i class="bi bi-search"></i> Buscar</button>
                 {% if query %}
-                <a href="/1_repo_linear" class="btn btn-outline-secondary"><i class="bi bi-x-lg"></i> Limpar</a>
+                <a href="/1_indice_geral" class="btn btn-outline-secondary"><i class="bi bi-x-lg"></i> Limpar</a>
                 {% endif %}
             </div>
         </form>

@@ -8,13 +8,11 @@ dependencies = [
     "flask>=3.0.3",
     "gunicorn>=22.0.0",
     "werkzeug>=3.0.3",
-    "flask-sqlalchemy>=3.1.1",
-    "sqlalchemy>=2.0.29",
-    "alembic>=1.13.1",
+    "azure-search-documents>=11.6.0",
+    "openai>=1.109.1",
     "python-dotenv>=1.0.1",
     "python-docx>=1.2.0",
     "openpyxl>=3.1.5",
-    "psycopg2-binary>=2.9.11",
     "azure-identity>=1.25.2",
     "azure-storage-blob>=12.28.0",
 ]
@@ -80,4 +78,3 @@ ban-relative-imports = "all"
 
 [tool.ruff.lint.flake8-type-checking]
 strict = true
-

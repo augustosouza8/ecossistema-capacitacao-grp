@@ -15,10 +15,15 @@ env/
 *.db
 *.sqlite3
 instance/
+local.db
 
-# Mock Data (Documents)
-# Ignorar todos os .docx reais de teste gerados
+# Documentos locais
+# Os POPs reais ficam fora do Git e devem ser acessados via Azure Blob no fluxo principal.
 data/docs/*.docx
+~$*.xlsx
+
+# Arquivos auxiliares locais
+AGENTS.md
 
 # Caches e Lints
 .pytest_cache/
@@ -27,3 +32,4 @@ data/docs/*.docx
 
 # OS generated files
 .DS_Store
+Thumbs.db

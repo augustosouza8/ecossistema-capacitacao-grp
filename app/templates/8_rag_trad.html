@@ -2,14 +2,14 @@
 {% block content %}
 <div class="row mb-4">
     <div class="col-12">
-        <h3 class="text-corp"><i class="bi bi-layout-text-window me-2"></i>8. IA Generativa (RAG Mock)</h3>
-        <p class="text-muted">Busca que apresenta primeiro uma síntese gerada por "IA" e depois lista os cartões fontes originais.</p>
+        <h3 class="text-corp"><i class="bi bi-layout-text-window me-2"></i>4. Busca RAG (IA Generativa)</h3>
+        <p class="text-muted">Busca que apresenta primeiro uma sintese local do catalogo e depois lista as fontes originais.</p>
     </div>
 </div>
 
 <div class="row justify-content-center mb-4">
     <div class="col-md-8">
-        <form action="/8_rag_trad" method="GET" class="d-flex">
+        <form action="/4_busca_rag" method="GET" class="d-flex">
             <div class="input-group input-group-lg shadow-sm">
                 <input type="text" name="q" class="form-control fs-6" placeholder="Pergunte sobre um procedimento..." value="{{ query }}" required>
                 <button class="btn btn-purple text-white px-4" type="submit"><i class="bi bi-magic"></i> Buscar & Gerar</button>
@@ -26,7 +26,7 @@
             <!-- Destaque IA (Featured Snippet) -->
             <div class="card border-0 shadow-sm mb-4" style="background-color: #f8f0ff; border-left: 5px solid #6f42c1 !important;">
                 <div class="card-body p-4">
-                    <h5 class="fw-bold mb-3" style="color: #6f42c1;"><i class="bi bi-stars me-2"></i>Resposta Gerada por IA</h5>
+                    <h5 class="fw-bold mb-3" style="color: #6f42c1;"><i class="bi bi-stars me-2"></i>Resposta Gerada a partir do Catalogo</h5>
                     <p class="mb-0 fs-6" style="line-height: 1.6;">{{ texto_gerado }}</p>
                 </div>
             </div>
@@ -59,7 +59,7 @@
             <!-- Destaque IA Fallback -->
             <div class="card border-0 shadow-sm mb-4" style="background-color: #f8f0ff; border-left: 5px solid #6f42c1 !important;">
                 <div class="card-body p-4">
-                    <h5 class="fw-bold mb-3" style="color: #6f42c1;"><i class="bi bi-stars me-2"></i>Resposta Gerada por IA</h5>
+                    <h5 class="fw-bold mb-3" style="color: #6f42c1;"><i class="bi bi-stars me-2"></i>Resposta Gerada a partir do Catalogo</h5>
                     <p class="mb-0 fs-6" style="line-height: 1.6;">{{ texto_gerado }}</p>
                 </div>
             </div>
