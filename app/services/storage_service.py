@@ -7,7 +7,7 @@ from azure.storage.blob import BlobSasPermissions, BlobServiceClient, generate_b
 
 def get_blob_sas_url(blob_path: str) -> str:
     """
-    Gera uma URL SAS segura para acesso temporário (15 minutos) a um arquivo .docx
+    Gera uma URL SAS segura para acesso temporario (15 minutos) a um documento
     no Azure Blob Storage, utilizando Managed Identity.
     """
     account_url = os.environ.get("AZURE_STORAGE_ACCOUNT_URL")

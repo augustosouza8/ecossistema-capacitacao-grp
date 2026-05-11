@@ -35,14 +35,20 @@ def test_index_route(client: FlaskClient) -> None:
     response = client.get("/")
     assert response.status_code == 200
     html = response.get_data(as_text=True)
-    assert "Testes de Usabilidade (MVP)" in html
+    assert "Teste Ecossistema GRP" in html
     assert "1. Índice Geral (Repositório Linear)" in html
 
 
 def test_repo_linear_route(client: FlaskClient) -> None:
     response = client.get("/1_indice_geral")
     assert response.status_code == 200
-    assert "Empenho guia" in response.get_data(as_text=True)
+    html = response.get_data(as_text=True)
+    assert "Empenho guia" in html
+    assert "MANUAL" in html
+    assert (
+        "/download/[001]-126892519_Documento____CDU30384___Consultar_Resumo_d.pdf"
+        in html
+    )
 
 
 def test_tree_accordion_route(client: FlaskClient) -> None:
@@ -54,7 +60,9 @@ def test_tree_accordion_route(client: FlaskClient) -> None:
 def test_semantic_trad_route(client: FlaskClient) -> None:
     response = client.get("/3_busca_semantica?q=guia")
     assert response.status_code == 200
-    assert "Empenho guia" in response.get_data(as_text=True)
+    html = response.get_data(as_text=True)
+    assert "Empenho guia" in html
+    assert "Baixar Documento" in html
 
 
 def test_rag_trad_route(client: FlaskClient) -> None:

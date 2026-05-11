@@ -1,8 +1,13 @@
 # Ecossistema Digital de Capacitação GRP (MVP Local)
 
-Este repositório contém a versão inicial do Ecossistema de Capacitação GRP, focada nas interfaces de catálogo, busca e resposta assistida a partir do catálogo Excel.
+Este repositorio contem a versao inicial do Ecossistema de Capacitacao GRP, focada nas interfaces de catalogo, busca e resposta assistida a partir do catalogo Excel.
 
-O projeto está preparado para rodar localmente com `uv` ou com `pip`, usando Azure AI Search para busca textual/híbrida e Azure Blob Storage para acesso aos documentos.
+O projeto esta preparado para rodar localmente com `uv` ou com `pip`, usando Azure AI Search para busca textual/hibrida e Azure Blob Storage para acesso aos documentos.
+
+O estado atual do repositorio ja inclui o catalogo real local:
+- planilha em `data/imports/materials.xlsx`
+- documentos PDF em `data/docs/`
+- `427` itens do tipo `MANUAL`, organizados na planilha por `module = Casos de Uso` e pelos temas reais do dominio
 
 ## Funcionalidades do MVP
 
@@ -36,7 +41,7 @@ Recomenda-se utilizar o [uv](https://github.com/astral-sh/uv) para gerenciamento
 3. Para downloads de documentos em ambiente local via Azure Blob, preencha tambem:
    - `AZURE_STORAGE_ACCOUNT_URL`
 
-Observação: os arquivos `.docx` reais não são versionados no GitHub. O fluxo recomendado para testes locais é acessar os documentos via Azure Blob.
+Observacao: os documentos reais em PDF estao versionados localmente em `data/docs/`. Se voce quiser testar downloads via Azure Blob, mantenha `AZURE_STORAGE_ACCOUNT_URL` configurada; caso contrario, o app serve os arquivos locais diretamente.
 
 ## Como executar localmente com uv
 
@@ -111,7 +116,7 @@ Observação: os arquivos `.docx` reais não são versionados no GitHub. O fluxo
 - Instale `uv` ou use `pip`
 - Copie `/.env.example` para `/.env`
 - Preencha as credenciais Azure do seu ambiente
-- Para testar downloads de POPs, use `AZURE_STORAGE_ACCOUNT_URL`, pois os `.docx` não estão no repositório
+- Para testar downloads via Azure Blob, use `AZURE_STORAGE_ACCOUNT_URL`; sem ela, os PDFs locais em `data/docs/` sao servidos pela propria aplicacao
 - Para testar a busca textual:
   - `http://127.0.0.1:5000/search?q=empenho&top=5`
 - Para testar a busca híbrida:

@@ -35,7 +35,7 @@ def catalog_workbook_path(tmp_path: Path) -> Path:
     worksheet.append(
         [
             1,
-            "POP",
+            "MANUAL",
             "Empenho guia",
             "Empenho",
             "Inclusao",
@@ -44,21 +44,21 @@ def catalog_workbook_path(tmp_path: Path) -> Path:
             "guia; empenho",
             "Passo a passo de empenho guia.",
             None,
-            "POP_101__empenho-inclusao-ordinario.docx",
+            "[001]-126892519_Documento____CDU30384___Consultar_Resumo_d.pdf",
         ]
     )
     worksheet.append(
         [
             2,
-            "VIDEO",
-            "Video liquidacao",
+            "LINK",
+            "Referencia liquidacao",
             "Liquidacao",
             "Conceitos",
             None,
             None,
             "liquidacao; tutorial",
-            "Video de liquidacao tutorial.",
-            "https://example.com/video-liquidacao",
+            "Referencia externa de liquidacao.",
+            "https://example.com/referencia-liquidacao",
             None,
         ]
     )
