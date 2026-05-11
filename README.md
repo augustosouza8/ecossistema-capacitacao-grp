@@ -139,10 +139,26 @@ pytest
 Os scripts abaixo ajudam a validar a autenticação no Azure OpenAI e o fluxo de busca:
 
 ```bash
-uv run python scripts/check_openai_token.py
-uv run python scripts/check_openai_embeddings.py
-uv run python scripts/check_openai_chat.py
-uv run python scripts/check_hybrid_search.py
+# Diagnóstico completo de conectividade e autenticação
+uv run python tests/diagnostics/diagnose.py
+
+# Testes individuais de componentes
+uv run python tests/diagnostics/check_openai_token.py
+uv run python tests/diagnostics/check_openai_embeddings.py
+uv run python tests/diagnostics/check_openai_chat.py
+uv run python tests/diagnostics/check_network_endpoints.py
+uv run python tests/diagnostics/check_hybrid_search.py
+uv run python tests/diagnostics/check_entra_token_rest.py
+```
+
+Testes de integração com os modelos Azure:
+
+```bash
+# Teste de autenticação e chat
+uv run python tests/integration/test_azure_simple.py
+
+# Teste de embeddings
+uv run python tests/integration/test_embeddings.py
 ```
 
 Esses scripts também podem ser executados com `python` em um ambiente montado via `pip`.
